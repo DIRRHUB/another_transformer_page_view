@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
     'ScaleAndFadeTransformer',
     'ZoomInPageTransformer',
     'ZoomOutPageTransformer',
-    'DeepthPageTransformer'
+    'DeepthPageTransformer',
   ];
 
   String? _type;
@@ -104,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
               );
             },
             child: const Text('route'),
-          )
+          ),
         ],
       ),
       body: Column(
@@ -236,7 +236,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 itemCount: 3,
               ),
             ),
-          )
+          ),
         ],
       ),
     );

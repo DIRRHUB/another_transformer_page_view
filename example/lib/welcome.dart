@@ -34,27 +34,27 @@ class Welcome extends StatelessWidget {
     'assets/home.png',
     'assets/good.png',
     'assets/image.png',
-    'assets/edit.png'
+    'assets/edit.png',
   ];
 
   final List<String> titles = [
     'Welcome',
     'Simple to use',
     'Easy parallax',
-    'Customizable'
+    'Customizable',
   ];
   final List<String> subtitles = [
     'Flutter TransformerPageView, for welcome screen, banner, image catalog and more',
     'Simple api,easy to understand,powerful adn strong',
     'Create parallax by a few lines of code',
-    'Highly customizable, the only boundary is our mind. :)'
+    'Highly customizable, the only boundary is our mind. :)',
   ];
 
   final List<Color> backgroundColors = [
     const Color(0xffF67904),
     const Color(0xffD12D2E),
     const Color(0xff7A1EA1),
-    const Color(0xff1773CF)
+    const Color(0xff1773CF),
   ];
 
   final int index;

@@ -44,7 +44,7 @@ class TestWidget extends StatelessWidget {
     final list = <Color>[
       Colors.redAccent,
       Colors.blueAccent,
-      Colors.greenAccent
+      Colors.greenAccent,
     ];
     return TransformerPageView(
       loop: true,

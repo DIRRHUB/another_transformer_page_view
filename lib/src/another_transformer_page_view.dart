@@ -179,9 +179,7 @@ class TransformerPageController extends PageController {
 
   @override
   double? get page {
-    return loop
-        ? _getRenderPageFromRealPage(realPage, loop, itemCount, reverse)
-        : realPage;
+    return loop ? _getRenderPageFromRealPage(realPage, loop, itemCount, reverse) : realPage;
   }
 
   int? getRealIndexFromRenderIndex(int? index) {
@@ -283,8 +281,7 @@ class TransformerPageView extends StatefulWidget {
     this.pageController,
     required this.itemCount,
   })  : assert(itemCount == 0 || itemBuilder != null || transformer != null),
-        duration = duration ??
-            const Duration(milliseconds: kDefaultTransactionDuration);
+        duration = duration ?? const Duration(milliseconds: kDefaultTransactionDuration);
 
   factory TransformerPageView.children({
     Key? key,
@@ -407,8 +404,7 @@ class _TransformerPageViewState extends State<TransformerPageView> {
           width: _size!.width,
           height: _size!.height,
           position: position.clamp(-1.0, 1.0),
-          activeIndex:
-              _pageController!.getRenderIndexFromRealIndex(_activeIndex),
+          activeIndex: _pageController!.getRenderIndexFromRealIndex(_activeIndex),
           fromIndex: _fromIndex,
           forward: _pageController!.position.pixels >= 0,
           done: _done,
@@ -431,7 +427,7 @@ class _TransformerPageViewState extends State<TransformerPageView> {
     final builder = _transformer == null ? _buildItemNormal : _buildItem;
     final Widget child = PageView.builder(
       itemBuilder: builder,
-      itemCount: _pageController!.getRealItemCount(),
+      itemCount: widget.itemCount,
       onPageChanged: _onIndexChanged,
       controller: _pageController,
       scrollDirection: widget.scrollDirection,
@@ -462,8 +458,7 @@ class _TransformerPageViewState extends State<TransformerPageView> {
 
   void _onIndexChanged(int index) {
     _activeIndex = index;
-    widget.onPageChanged
-        ?.call(_pageController!.getRenderIndexFromRealIndex(index));
+    widget.onPageChanged?.call(_pageController!.getRenderIndexFromRealIndex(index));
   }
 
   void _onGetSize(_) {
@@ -599,8 +594,7 @@ class _TransformerPageViewState extends State<TransformerPageView> {
     switch (event) {
       case IndexController.moveEvent:
         {
-          index = _pageController!
-              .getRealIndexFromRenderIndex(widget.controller!.index);
+          index = _pageController!.getRealIndexFromRenderIndex(widget.controller!.index);
         }
         break;
       case IndexController.previousEvent:
