@@ -458,7 +458,7 @@ class _TransformerPageViewState extends State<TransformerPageView> {
 
   void _onIndexChanged(int index) {
     _activeIndex = index;
-    widget.onPageChanged?.call(_pageController!.getRenderIndexFromRealIndex(index));
+    widget.onPageChanged?.call(index);
   }
 
   void _onGetSize(_) {
