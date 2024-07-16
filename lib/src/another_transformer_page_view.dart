@@ -329,29 +329,12 @@ class TransformerPageView extends StatefulWidget {
     int? itemCount,
     required bool loop,
   }) {
+    return index;
     var initPage = reverse ? (itemCount! - index! - 1) : index!;
     if (loop) {
       initPage += kMiddleValue;
     }
     return initPage;
-  }
-
-  static PageController createPageController({
-    required bool reverse,
-    int? index,
-    int? itemCount,
-    required bool loop,
-    required double viewportFraction,
-  }) {
-    return PageController(
-      initialPage: getRealIndexFromRenderIndex(
-        reverse: reverse,
-        index: index,
-        itemCount: itemCount,
-        loop: loop,
-      )!,
-      viewportFraction: viewportFraction,
-    );
   }
 }
 
