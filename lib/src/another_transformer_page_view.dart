@@ -336,6 +336,22 @@ class TransformerPageView extends StatefulWidget {
     }
     return initPage;
   }
+
+  static TransformerPageController createPageController({
+    required bool reverse,
+    int? index,
+    required int? itemCount,
+    required bool loop,
+    double viewportFraction = 1,
+  }) {
+    return TransformerPageController(
+      initialPage: index,
+      itemCount: itemCount,
+      loop: loop,
+      reverse: reverse,
+      viewportFraction: viewportFraction,
+    );
+  }
 }
 
 class _TransformerPageViewState extends State<TransformerPageView> {
@@ -410,7 +426,7 @@ class _TransformerPageViewState extends State<TransformerPageView> {
     final builder = _transformer == null ? _buildItemNormal : _buildItem;
     final Widget child = PageView.builder(
       itemBuilder: builder,
-      itemCount: widget.itemCount,
+      itemCount: _pageController!.getRealItemCount(),
       onPageChanged: _onIndexChanged,
       controller: _pageController,
       scrollDirection: widget.scrollDirection,
@@ -441,7 +457,7 @@ class _TransformerPageViewState extends State<TransformerPageView> {
 
   void _onIndexChanged(int index) {
     _activeIndex = index;
-    widget.onPageChanged?.call(index);
+    widget.onPageChanged?.call(_pageController!.getRenderIndexFromRealIndex(index));
   }
 
   void _onGetSize(_) {
