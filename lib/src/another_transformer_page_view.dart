@@ -329,7 +329,6 @@ class TransformerPageView extends StatefulWidget {
     int? itemCount,
     required bool loop,
   }) {
-    return index;
     var initPage = reverse ? (itemCount! - index! - 1) : index!;
     if (loop) {
       initPage += kMiddleValue;
